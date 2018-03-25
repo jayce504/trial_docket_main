@@ -1,0 +1,32 @@
+<h1>Update Existing Client</h1>
+
+<%= render 'layouts/form' %>
+
+<%=form_for @client do |c| %>
+<p>
+    <%=c.label :name %><br/>
+    <%=c.text_field :name %>
+</p>
+<p>
+    <%=c.label :address %><br/>
+    <%=c.text_field :address %>
+</p>
+<p>
+    <%=c.label :phone_number %><br/>
+    <%=c.text_field :phone_number %>
+</p>
+<p>
+    <%=c.label :appointed_retained %><br/>
+    <%=c.text_field :appointed_retained %>
+</p>
+<p>
+    <%=c.label :alleged_offenses %><br/>
+    <%=c.text_area :alleged_offenses %>
+</p>
+<p>
+    <%= c.submit %>
+</p>
+
+<% end %>
+
+<%=link_to 'Back to clients list', clients_path%>
