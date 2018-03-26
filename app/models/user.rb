@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          
   has_one :payment
   has_many :images
+  has_many :clients
   accepts_nested_attributes_for :payment
 end
