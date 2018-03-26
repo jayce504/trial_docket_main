@@ -1,8 +1,8 @@
 class ClientsController < ApplicationController
     
-    before_action :set_client, only: [:edit, :update, :show, :destroy]
-    before_action :require_user, except: [:index, :show]
-    before_action :require_same_user, only: [:edit, :update, :destroy]
+    #before_action :set_client, only: [:edit, :update, :show, :destroy]
+    #before_action :require_user, except: [:index, :show]
+    #before_action :require_same_user, only: [:edit, :update, :destroy]
     
    def index
     @clients = Client.all

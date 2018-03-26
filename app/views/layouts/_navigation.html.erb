@@ -1,0 +1,20 @@
+<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Trial Docket</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <% if user_signed_in? %>
+            <span class ="heading-nav"><li><%= link_to 'Edit account', edit_user_registration_path %></li></span>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+          <% else %>
+            <span class ="heading-nav"><li><%= link_to 'Sign in', new_user_session_path %></li></span>
+            <span class ="heading-nav"><li><%= link_to 'Sign up', new_user_registration_path %></li></span>
+          <% end %>
+          <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to 'Users', users_path %></li>
+            <% end %>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
