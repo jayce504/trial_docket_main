@@ -1,10 +1,23 @@
 <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <a class="navbar-brand" href="/">Trial Docket</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
           <% if user_signed_in? %>
+            <span class ="heading-nav"><li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li></span>
             <span class ="heading-nav"><li><%= link_to 'Edit account', edit_user_registration_path %></li></span>
-            <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+            <span class="heading-nav">
+              <div class="navbar-collapse collapse navbar-responsive-collapse">
+               <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  User Actions
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="/clients/new">Add A Client</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="/clients">See All Your Clients</a></li>
+                </ul>
+              </div>
+            </span>
           <% else %>
             <span class ="heading-nav"><li><%= link_to 'Sign in', new_user_session_path %></li></span>
             <span class ="heading-nav"><li><%= link_to 'Sign up', new_user_registration_path %></li></span>
