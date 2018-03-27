@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325202650) do
+ActiveRecord::Schema.define(version: 20180327012445) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180325202650) do
     t.string   "sentencing_judge"
     t.string   "disposition"
     t.string   "case_outcome"
+    t.integer  "user_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20180325202650) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "client_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,6 +1,6 @@
 <span class="heading"><h2 align="center">Name: <%= @client.name %></h2></span>
 <div class="well col-xs-8 col-xs-offset-2">
-    <% if @client.user %>
+    <% if @client.user_id? %>
         <ul class = "listing">
             <div class = 'row center'>
                 <div class = 'col-md-4 col-md-offset-5'> 
@@ -21,11 +21,9 @@
 <h4 class = "center description">Phone Number: </h4><%= simple_format(@client.phone_number) %>
 <h4 class = "center description">Appointed or Retained: </h4><%= simple_format(@client.appointed_retained) %>
 <h4 class = "center description">Alleged Offenses: </h4><%= simple_format(@client.alleged_offenses) %>
-    <% if @client.categories.any? %>
-        <p>Case Type: <%= render @client.categories %></p>
-    <% end %>
+ 
     <div class="client-actions">
-        <% if logged_in? && (current_user == @client.user || current_user.admin?) %>
+        <% if @client.user_id %>
             <%= link_to "Update this client", edit_client_path(@client), class:"btn btn-xs btn-primary" %>
             <%= link_to "Delete this client", client_path(@client), method: :delete, data: { confirm:"Are you sure you want to delete this client?" }, class:"btn btn-xs btn-danger" %>
         <% end %>

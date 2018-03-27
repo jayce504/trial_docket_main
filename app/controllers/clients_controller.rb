@@ -1,11 +1,11 @@
 class ClientsController < ApplicationController
     
-    #before_action :set_client, only: [:edit, :update, :show, :destroy]
+    before_action :set_client, only: [:edit, :update, :show, :destroy]
     #before_action :require_user, except: [:index, :show]
     #before_action :require_same_user, only: [:edit, :update, :destroy]
     
    def index
-    @clients = Client.all
+    @clients = Client.paginate(page: params[:page], per_page:5)
    end 
    
    def new
@@ -13,12 +13,12 @@ class ClientsController < ApplicationController
    end
    
    def edit
-        
+     
    end
 
     def create
         @client = Client.new(client_params)
-        @client.user = current_user
+        @client.user_id = current_user
         if @client.save
             flash[:success]="Client was successfully registered"
             redirect_to client_path(@client)
@@ -28,6 +28,7 @@ class ClientsController < ApplicationController
     end
     
     def update
+        
         if @client.update(client_params)
             flash[:success]="Client was successfully updated"
             redirect_to client_path(@client)
@@ -41,6 +42,7 @@ class ClientsController < ApplicationController
     end
    
     def destroy
+       
        @client.destroy
        flash[:success]="Client was successfully deleted"
        redirect_to clients_path

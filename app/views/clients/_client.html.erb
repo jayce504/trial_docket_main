@@ -13,7 +13,7 @@
                             Alleged Offenses: <%=client.alleged_offenses%><br/>
                                 <div class = "client-meta-details">
                                     <small>
-                                        Created by: <%= client.user.username if client.user %>,
+                                        Created by: <%= current_user if client.user_id %>,
                                         <%= time_ago_in_words(client.created_at) %> ago,
                                         last updated: <%= time_ago_in_words(client.updated_at) %> ago
                                     </small>
