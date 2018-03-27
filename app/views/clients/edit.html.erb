@@ -1,32 +1,71 @@
-<h1>Update Existing Client</h1>
-
 <%= render 'layouts/form' %>
-
-<%=form_for @client do |c| %>
-<p>
-    <%=c.label :name %><br/>
-    <%=c.text_field :name %>
-</p>
-<p>
-    <%=c.label :address %><br/>
-    <%=c.text_field :address %>
-</p>
-<p>
-    <%=c.label :phone_number %><br/>
-    <%=c.text_field :phone_number %>
-</p>
-<p>
-    <%=c.label :appointed_retained %><br/>
-    <%=c.text_field :appointed_retained %>
-</p>
-<p>
-    <%=c.label :alleged_offenses %><br/>
-    <%=c.text_area :alleged_offenses %>
-</p>
-<p>
-    <%= c.submit %>
-</p>
-
-<% end %>
-
-<%=link_to 'Back to clients list', clients_path%>
+<div class = "col-md-6">
+    <div class="form">
+        <h1>Change This Client</h1>
+        <%=form_for @client do |c| %>
+            <p>
+                <%=c.label :name %><br/>
+                <%=c.text_field :name %>
+            </p>
+            <p>
+                <%=c.label :address %><br/>
+                <%=c.text_field :address %>
+            </p>
+            <p>
+                <%=c.label :phone_number %><br/>
+                <%=c.telephone_field(:phone_number, :value => @client.phone_number ) %>
+            </p>
+            <p>
+                <%=c.label :appointed_retained %><br/>
+                <%=c.text_field :appointed_retained %>
+            </p>
+            <p>
+                <%=c.label :alleged_offenses %><br/>
+                <%=c.text_area :alleged_offenses %>
+            </p>
+            <p>
+                <%=c.label :beginning_date %><br/>
+                <%=c.date_field :beginning_date %>
+            </p>
+            <p>
+                <%=c.label :date_of_first_client_interaction %><br/>
+                <%=c.date_field :date_of_first_client_interaction %>
+            </p>
+            <p>
+                <%=c.label :disposition_date %><br/>
+                <%=c.date_field :disposition_date %>
+            </p>
+            <p>
+                <%=c.label :hearing_dates %><br/>
+                <%=c.date_field :hearing_dates %>
+            </p>
+            <p>
+                <%=c.label :time_outside_of_court %><br/>
+                <%=c.number_field :time_outside_of_court, step: 0.1 %>
+            </p>
+            <p>
+                <%=c.label :time_in_court %><br/>
+                <%=c.number_field :time_in_court, step: 0.1 %>
+            </p>
+            <p>
+                <%=c.label :time_waiting_in_court %><br/>
+                <%=c.number_field :time_waiting_in_court, step: 0.1 %>
+            </p>
+            <p>
+                <%=c.label :sentencing_judge %><br/>
+                <%= c.text_field :sentencing_judge %>
+            </p>
+            <p>
+                <%=c.label :disposition %><br/>
+                <%=c.text_field :disposition %>
+            </p>
+            <p>
+                <%=c.label :case_outcome %><br/>
+                <%=c.text_field :case_outcome %>
+            </p>
+    </div>
+    <p>
+       <%= c.submit %>
+    </p>
+    
+    <% end %>
