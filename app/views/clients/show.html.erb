@@ -21,7 +21,16 @@
 <h4 class = "center description">Phone Number: </h4><%= simple_format(@client.phone_number) %>
 <h4 class = "center description">Appointed or Retained: </h4><%= simple_format(@client.appointed_retained) %>
 <h4 class = "center description">Alleged Offenses: </h4><%= simple_format(@client.alleged_offenses) %>
- 
+<h4 class = "center description">Beginning Date: </h4><%=format_value(@client.beginning_date)%>
+<h4 class = "center description">Date of first client interaction: </h4><%= format_value(@client.date_of_first_client_interaction) %>
+<h4 class = "center description">Disposition Date: </h4><%= format_value(@client.disposition_date) %>
+<h4 class = "center description">Hearing Dates: </h4><%= format_value(@client.hearing_dates) %>
+<h4 class = "center description">Time spent outside of court: </h4><%= format_value(@client.time_outside_of_court) %>
+<h4 class = "center description">Time spent in court: </h4><%= format_value(@client.time_in_court) %>
+<h4 class = "center description">Time spent waiting in court: </h4><%= format_value(@client.time_waiting_in_court) %>
+<h4 class = "center description">Sentencing judge: </h4><%= format_value(@client.sentencing_judge) %>
+<h4 class = "center description">Disposition: </h4><%= format_value(@client.disposition) %>
+<h4 class = "center description">Case Outcome: </h4><%= format_value(@client.case_outcome)%>
     <div class="client-actions">
         <% if @client.user_id %>
             <%= link_to "Update this client", edit_client_path(@client), class:"btn btn-xs btn-primary" %>
