@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
     
     before_action :set_client, only: [:edit, :update, :show, :destroy]
     #before_action :require_user, except: [:index, :show]
-    #before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     
    def index
     @clients = Client.paginate(page: params[:page], per_page:5)
@@ -61,7 +61,7 @@ class ClientsController < ApplicationController
         end
         
         def require_same_user
-            if current_user != @client.user and !current_user.admin?
+            if current_user != @client.user_id
             flash[:danger] = "You can only update or delete your own clients"
             redirect_to root_path
             end

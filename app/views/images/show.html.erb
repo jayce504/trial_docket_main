@@ -19,4 +19,6 @@
               image_path(@image),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' %><br><br>
+<%= link_to "Back to Client List", clients_path, class: "btn btn-xs btn-primary" %><br>
+<%= link_to "Back to This Client's Profile", clients_path(@client), class: "btn btn-xs btn-success" %>
