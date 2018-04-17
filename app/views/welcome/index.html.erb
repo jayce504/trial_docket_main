@@ -1,23 +1,16 @@
 <% if current_user %>
   <h3>Welcome: <%= current_user.email %></h3>
 <% else %>
-  <div class="jumbotron">
-    <h1>Trial Docket</h1>
-    <h3 class="lead">
-      Trial Tech for Trial Lawyers
-    </h3>
-    <div class="row">
-    <div class="plans clearfix">
-      <div class="col-lg-3 col-lg-offset-3 plan">
-        <p>
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
-        </p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="landing-text">
+        <h1>Trial Docket</h1>      
+        <p>Trial tech for trial lawyers</p>
       </div>
     </div>
-  </div>
-  </div>
-
-  
+    <br>
+    <div class="col-md-12 text-center">
+      <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-lg btn-primary" %>
+    </div>
+</div>
 <% end %>
-
-

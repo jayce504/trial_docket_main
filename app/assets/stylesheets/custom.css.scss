@@ -58,6 +58,10 @@ li a {
 
 }
 
+.btn-success:visited{
+  color: #fff;
+}
+
 .btn-primary:visited, .btn-danger:visited {
   color: #fff;
 }
@@ -69,20 +73,28 @@ li a {
   }
 }
 
-.jumbotron {
-  text-align: center;
+.jumbotron-fluid {
+  margin-top: -25px;
   background-image: asset-url('san-fran-cityscape.jpg');
-  height: 750px;
   background-size: cover;
-  color: #fff;
-  font-family: 'Helvetica Neue' !important;
-  font-stretch: expanded;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
-  text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+  height: 750px;
 
+}
+
+.landing-text {
+  color: #000;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.button-landing {
+  text-align: center;
+  margin-left: 400em;
+  margin-top: 20em;
+}
+
+.non-landing {
+  padding-left: 375px;
 }
 
 .no-left-padding {
